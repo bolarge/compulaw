@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="menu" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:sec="http://www.springframework.org/security/tags" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:url value="/" var="home" />
+	<spring:url value="/about" var="bout" />
+	<spring:url value="/price" var="price" />
+	<spring:url value="/sys_auth?form" var="reg" />
+	<spring:url value="/public/sb_subs?form" var="subs" />
+	<spring:url value="/faq" var="faq" />
+	<spring:url var="logoutUrl" value="/sys_auth/logout" />
+	<spring:url var="loginUrl" value="/sys_auth/login" />
+
+	<spring:message code="label_login" var="labelLogin" />
+	<spring:message code="label_logout" var="labelLogout" />
+	<spring:message code="label_welcome" var="labelWelcome" />
+	<spring:message code="label_home" var="labelHome" />
+	<spring:message code="label_faq" var="labelFaq" />
+	<spring:message code="label_about" var="labelAbout" />
+	<spring:message code="label_reg" var="labelRegister" />
+	<spring:message code="label_subs" var="labelSubscriber" />
+	<spring:message code="label_price" var="labelPricing" />
+	<spring:message code="label_signas" var="SignInAs" />
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<!-- Toggle button -->
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <!-- Brand Logo -->
+				</a> <a class="brand" href="${home}"><img src="" alt="" align="" />Compulaw
+				</a>
+				<!-- Navbar links -->
+				<nav class="nav-collapse collapse">
+					<ul class="nav">
+						<li class=""><a href="${home}"> <c:out
+									value="${labelHome}" /></a></li>
+						<li class=""><a href="${bout}"><c:out
+									value="${labelAbout}" /></a></li>
+						<li class=""><a href="${price}"><c:out
+									value="${labelPricing}" /></a></li>
+						<li class=""><a href="${reg}"><c:out
+									value="${labelSubscriber}" /></a></li>
+						<!--  
+						<li class=""><a href="${faq}"><c:out value="${labelFaq}" /></a></li>
+						-->
+						
+						<!-- Security context current principal -->
+						<c:set value="${accountStatus}" var="aStatus" scope="session" />
+
+						<c:choose>
+							<c:when test="${aStatus ne true || userSession eq false}">
+								<li class=""><a href="${loginUrl}">Sign In</a></li>
+							</c:when>
+							<c:otherwise>
+								<sec:authorize ifAnyGranted="ROLE_USER,ROLE_ADMIN">
+									<li class=""><a href="${logoutUrl}">${labelLogout}</a></li>  
+								</sec:authorize>
+							</c:otherwise>
+						</c:choose>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<!-- Carousel -->
+	<section class="carousel-wrapper">
+		<div id="myCarousel" class="carousel slide">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+				<li data-target="#myCarousel" data-slide-to="4"></li>
+			</ol>
+
+			<div class="carousel-inner">
+				<div class="item active">
+					<spring:url value="/resources/images/compulaw_banner03.png"
+						var="slide1" />
+					<img class="" src="${slide1}" alt=""></img>
+					<div class="carousel-caption">
+						<h1>Introducing Compulaw Web-Mobile</h1>
+						<br></br>
+					</div>
+				</div>
+
+				<div class="item">
+					<spring:url value="/resources/images/compulaw_banner03.png"
+						var="slide2" />
+					<img src="${slide2}" alt=""></img>
+					<div class="carousel-caption">
+						<h1>Basic and Advanced Search</h1>
+					</div>
+				</div>
+				<div class="item">
+					<spring:url value="/resources/images/compulaw_banner03.png"
+						var="slide3" />
+					<img class="" src="${slide3}" alt=""></img>
+					<div class="carousel-caption">
+						<h1>Accurate data retrieval</h1>
+					</div>
+				</div>
+				<div class="item">
+					<spring:url value="/resources/images/compulaw_banner03.png"
+						var="slide4" />
+					<img class="" src="${slide4}" alt=""></img>
+					<div class="carousel-caption">
+						<h1>Portable Document Catalog</h1>
+					</div>
+				</div>
+				<div class="item">
+					<spring:url value="/resources/images/compulaw_banner03.png"
+						var="slide5" />
+					<img class="" src="${slide5}" alt=""></img>
+					<div class="carousel-caption">
+						<h1>Flexible Subscription Plans</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

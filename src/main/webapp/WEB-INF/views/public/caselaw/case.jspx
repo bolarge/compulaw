@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+<spring:message code="label_caselaw_file" var="labelCaselawFile" />
+<spring:message code="label_caselaw_title" var="labelCaselawCaseTitle" />
+<spring:message code="label_caselaw_cit1" var="labelCaselawCitations1" />
+<spring:message code="label_caselaw_cit2" var="labelCaselawCitations2" />
+<spring:message code="label_caselaw_cit3" var="labelCaselawCitations3" />
+<spring:message code="label_caselaw_content" var="labelCaselawContent" />
+<spring:message code="label_caselaw_counsel" var="labelCaselawCounsel" />
+<spring:message code="label_caselaw_conType"
+	var="labelCaselawContentType" />
+<spring:message code="label_caselaw_created" var="labelCaselawCreated" />
+<spring:message code="label_caselaw_date" var="labelCaselawDate" />
+<spring:message code="label_caselaw_fName" var="labelCaselawFilename" />
+<spring:message code="label_caselaw_judge" var="labelCaselawJudge" />
+<spring:message code="label_caselaw_category" var="labelCaselawCategory" />
+<spring:message code="label_caselaw_act" var="labelCaselawAct" />
+<spring:message code="label_caselaw_update" var="labelCaselawUpdate" />
+<spring:message code="label_caselaw_new" var="labelCaselawNew" />
+<spring:message code="label_person_new" var="labelPersonNew" />
+
+<spring:message code="label_caselaw_doc" var="labelCaselawDocument" />
+<spring:url value="/caselaw/caselaw/document" var="caselawDocumentUrl" />
+<spring:url value="/public/caselaw" var="editCaselawUrl" />
+<!--  
+<spring:url value="/public/act/document" var="actDocumentUrl" />
+<spring:url value="/public/act" var="editActUrl" />
+-->
+<div class="row">
+	<iframe id="downloadFrame" src="${caselawDocumentUrl}/${caselaw.id}"
+		height="300" width="500" style="display: none"> </iframe>
+</div>
+</div>

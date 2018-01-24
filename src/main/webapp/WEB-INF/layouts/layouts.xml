@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<!--Base Content Layout -->
+	<definition name="base" template="/WEB-INF/layouts/default.jspx">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jspx" />
+		<put-attribute name="menu" value="/WEB-INF/views/common/menu.jspx" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jspx" />
+	</definition>
+
+	<definition name="base.content" extends="base">
+		<put-attribute name="menu" value="/WEB-INF/views/common/menu.jspx" />
+	</definition>
+
+</tiles-definitions>

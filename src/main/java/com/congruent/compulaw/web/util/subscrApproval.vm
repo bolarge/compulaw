@@ -1,0 +1,21 @@
+<html>
+<body>
+<div>
+<h3>Dear ${transaction.user.lastName},</h3> 
+<p>
+Your payment has been confirmed and your subscription has been processed completely.</p>
+<p>
+Your subscription details is as follows:<br/>
+
+<ol>
+   			<li>Transaction Plan: ${transaction.itemName}</li>
+   			<li>Applicant: ${transaction.user.email}</li>
+   			<li>Start Date: ${transaction.dateApproved}</li>
+   			<li>Due date: ${transaction.dueDate}</li>
+   		</ol>
+
+We thank you for your patronage.
+   </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+
+<div class="container">
+	<div class="row" style="position: absolute; top: 200px;">
+		<div class="span4"></div>
+		<div class="well span4">
+			<p>
+				Thank you for using feedback System. <br /> You may <a
+					href="login.php">log in again</a>.
+			</p>
+		</div>
+	</div>
+</div>

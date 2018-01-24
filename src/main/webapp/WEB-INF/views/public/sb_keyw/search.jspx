@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:message code="label_caselaw_id" var="labelCaselawId" />
+	<spring:message code="label_caselaw_doc_id" var="labelCaselawCaseDocId" />
+	<spring:message code="label_caselaw_title" var="labelCaselawCaseTitle" />
+	<spring:message code="label_caselaw_judge" var="labelCaselawJudge" />
+	<spring:message code="label_caselaw_counsel" var="labelCaselawCounsel" />
+	<spring:message code="label_caselaw_cit1" var="labelCaselawCitations1" />
+	<spring:message code="label_caselaw_cit2" var="labelCaselawCitations2" />
+	<spring:message code="label_caselaw_cit3" var="labelCaselawCitations3" />
+	<spring:message code="label_caselaw_kword" var="labelCaselawKeyword" />
+	<spring:message code="label_caselaw_content" var="labelCaselawContent" />
+	<spring:message code="label_caselaw_doc" var="labelCaselawDocument" />
+
+	<spring:url value="/public/sb_keyw/" var="showCaselawSearchUrl" />
+	<spring:url value="/public/sb_keyw/document/" var="showCaselawDocUrl" />
+	<c:set var="pagerUrl" value="/public/sb_keyw/"/>
+
+	<div class="" id="bcSearch">
+		<form class="" action="${showCaselawSearchUrl}listgrid" method="GET" id="adv3Form">
+			<fieldset>
+				<legend>Search</legend>
+				<div class="">
+					<div>
+						<input type="text" class="input-block-level"
+							placeholder="Enter Search" name="keyword" id="keyword"></input>
+					</div>
+					<div class="text-center">
+						<button class="btn" type="submit" id="searchBut">Search</button>
+						<a class="btn" href="/compulaw/public/sb_srch/search"> Advance
+							Search</a>
+					</div>
+				</div>
+				<div>
+					<input type="hidden" name="page" value="1" /> 
+					<input type="hidden"
+						name="rows" value="10" /> <input type="hidden" name="sidx"
+						value="caseTitle" /> <input type="hidden" name="sord" value="asc"></input>
+					<input type="hidden" name="caseTitle" value=""></input>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+	<div class="row-fluid" id="basicPager">
+		<div class="">
+			<c:if test="${not empty caselaws}">
+				<table class="table">
+					<tr>
+						<th>Title</th>
+						<th>Brief</th>
+					</tr>
+					<c:forEach items="${caselaws}" var="caselaw">
+						<tr>
+							<td><a href="${showCaselawDocUrl}/${caselaw.id}">${caselaw.caseTitle}</a></td>
+							<td><a href="${showCaselawDocUrl}/${caselaw.id}">${caselaw.keyword}</a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</c:if>
+		</div>
+	</div>
+
+	<c:url var="firstUrl"
+		value="${pagerUrl}listgrid?page=1&amp;rows=10" />
+	<c:url var="lastUrl"
+		value="${pagerUrl}listgrid?page=${caselawPage.totalPages}&amp;rows=10" />
+	<c:url var="prevUrl"
+		value="${pagerUrl}listgrid?page=${currentIndex - 1}&amp;rows=10" />
+	<c:url var="nextUrl"
+		value="${pagerUrl}listgrid?page=${currentIndex + 1}&amp;rows=10" />
+
+	<div class="row-fluid" id="basicPager33">
+		<div class="">
+			<c:if test="${not empty caselaws}">
+				<div class="pagination" id="basicPager">
+					<div class="offset1">
+						<ul>
+							<c:choose>
+								<c:when test="${currentIndex == 1}">
+									<li class="disabled"><a href="#">&lt;&lt;&lt;</a></li>
+									<li class="disabled"><a href="#">&lt;</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="${firstUrl}">&gt;&gt;</a></li>
+									<li><a href="${prevUrl}">Previous</a></li>
+								</c:otherwise>
+							</c:choose>
+							<c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
+								<c:url var="pageUrl"
+									value="${pagerUrl}listgrid?page=${i}&amp;rows=10" />
+								<c:choose>
+									<c:when test="${i == currentIndex}">
+										<li class="active"><a href="${pageUrl}"><c:out
+													value="${i}" /></a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="${pageUrl}"><c:out value="${i}" /></a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							<c:choose>
+								<c:when test="${currentIndex == caselawPage.totalPages}">
+									<li class="disabled"><a href="#">&lt;</a></li>
+									<li class="disabled"><a href="#">&lt;&lt;</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="${nextUrl}">Next</a></li>
+									<li><a href="${lastUrl}">&gt;&gt;</a></li>
+								</c:otherwise>
+							</c:choose>
+						</ul>
+					</div>
+				</div>
+			</c:if>
+		</div>
+	</div>
+</div>

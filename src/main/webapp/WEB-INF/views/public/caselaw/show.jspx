@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+<spring:message code="label_caselaw_file" var="labelCaselawFile" />
+<spring:message code="label_caselaw_title" var="labelCaselawCaseTitle" />
+<spring:message code="label_caselaw_cit1" var="labelCaselawCitations1" />
+<spring:message code="label_caselaw_cit2" var="labelCaselawCitations2" />
+<spring:message code="label_caselaw_cit3" var="labelCaselawCitations3" />
+<spring:message code="label_caselaw_content" var="labelCaselawContent" />
+<spring:message code="label_caselaw_counsel" var="labelCaselawCounsel" />
+<spring:message code="label_caselaw_conType" var="labelCaselawContentType" />
+<spring:message code="label_caselaw_created" var="labelCaselawCreated" />
+<spring:message code="label_caselaw_date" var="labelCaselawDate" />
+<spring:message code="label_caselaw_fName" var="labelCaselawFilename" />
+<spring:message code="label_caselaw_judge" var="labelCaselawJudge" />
+<spring:message code="label_caselaw_category" var="labelCaselawCategory" />
+<spring:message code="label_caselaw_act" var="labelCaselawAct" />
+<spring:message code="label_caselaw_update" var="labelCaselawUpdate" />
+<spring:message code="label_caselaw_new" var="labelCaselawNew" />
+<spring:message code="label_person_new" var="labelPersonNew" />
+<spring:message code="label_caselaw_info" var="labelCaselawInfo" />
+
+<spring:message code="label_caselaw_doc" var="labelCaselawDocument" />
+<spring:url value="/caselaw/document" var="caselawDocumentUrl" />
+<spring:url value="/public/caselaw" var="editCaselawUrl" />
+
+
+<div class="divide">
+	<form class="form-horizontal">
+		<c:if test="${not empty message}">
+			<div id="message" class="${message.type}">${message.message}</div>
+		</c:if>
+		<fieldset>
+			<legend>${labelCaselawInfo}</legend>
+			<div class="row-fluid">
+				<div class="span4">
+					<div class="control-group">
+						<label class="control-label" for="caseTitle">${labelCaselawCaseTitle}</label>
+						<div class="controls">
+							<input type="text" id="caseTitle" name="caseTitle"
+								value="${caselaw.caseTitle}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="judge">${labelCaselawJudge}</label>
+						<div class="controls">
+							<input type="text" id="Judge" name="judge"
+								value="${caselaw.judge}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="counsels">${labelCaselawCounsel}</label>
+						<div class="controls">
+							<input type="text" id="counsels" name="counsels"
+								value="${caselaw.counsels}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="citations1">${labelCaselawCitations1}</label>
+						<div class="controls">
+							<input type="text" id="citations1" name="citations1"
+								value="${caselaw.citations1}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="citations2">${labelCaselawCitations2}</label>
+						<div class="controls">
+							<input type="text" id="citations2" name="citations2"
+								value="${caselaw.citations2}" readonly="readonly"/>
+						</div>
+					</div>
+				</div>
+
+				<!-- End First Span 4 -->
+				<div class="span4 offset1">
+					<div class="control-group">
+						<label class="control-label" for="citations3">${labelCaselawCitations3}</label>
+						<div class="controls">
+							<input type="text" id="citations3" name="citations3"
+								value="${caselaw.citations3}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="caseFile">${labelCaselawFilename}</label>
+						<div class="controls">
+							<input type="text" id="caseFile" name="caseFile"
+								value="${caselaw.caseFile}" readonly="readonly"/>
+						</div>
+					</div>
+					<!--  
+			<div class="control-group">
+				<label class="control-label" for="document.content">${labelCaselawContent}</label>
+				<div class="controls">
+					<input name="file" type="file" />
+				</div>
+			</div>
+			-->
+					<div class="control-group">
+						<label class="control-label" for="caselawDate">${labelCaselawDate}</label>
+						<div class="controls">
+							<input type="text" id="caselawDate" name="caselawDate"
+								value="${caselaw.releasedDate}" readonly="readonly"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<a href="${editCaselawUrl}/${caselaw.id}?form">${labelCaselawUpdate}</a>
+	</form>
+</div>
+</div>

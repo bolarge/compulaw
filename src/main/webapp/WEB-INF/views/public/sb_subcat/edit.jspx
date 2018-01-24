@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:form="http://www.springframework.org/tags/form"
+     version="2.0">
+
+<spring:message code="label_lcat_list" var="labelCategoryList" />
+<spring:message code="label_lcat_name" var="labelCatName" />
+<spring:message code="label_lcat_code" var="labelCatCode" />
+<spring:message code="label_subcat_1" var="labelSubCategory1" />
+<spring:message code="label_subcat_2" var="labelSubCategory2" />
+<spring:message code="label_subcat_3" var="labelSubCategory3" />
+<spring:message code="label_subcat_4" var="labelSubCategory4" />
+<spring:message code="label_subcat_5" var="labelSubCategory5" />
+<spring:message code="label_lcat_sub_cat" var="labelCatSubCat" />
+<spring:message code="label_lcat_caselaws" var="labelCatCaselaws" />
+<spring:message code="label_lcat_acts" var="labelCatActs" />
+<spring:message code="label_subcat_update" var="labelSubCategoryUpdate" />
+<spring:message code="label_subcat_new" var="labelSubCategoryNew" />
+<spring:message code="label_subcat_law_name"
+	var="labelSubCategoryLawName" />
+
+<spring:url value="/public/sb_subcat" var="editLawSubCategoryUrl" />
+
+<spring:eval
+	expression="subCategory.Id == null ? labelSubCategoryNew:labelSubCategoryUpdate"
+	var="formTitle" />
+
+<div class="row-fluid divide">
+	<div class="span12">
+		<form:form modelAttribute="subCategory" id="subCategoryUpdateForm"
+			method="post">
+
+			<c:if test="${not empty message}">
+				<div id="message" class="${message.type}">${message.message}</div>
+			</c:if>
+
+			<fieldset>
+				<legend>${formTitle}</legend>
+				<!-- <div class="row">  -->
+				<div class="span4 offset1">
+
+					<div class="control-group">
+						<label class="control-label" for="category">${labelSubCategoryLawName}</label>
+						<div class="controls">
+							<form:select path="category">
+								<form:option value="0" label="--Please Select Category--" />
+								<form:options items="${allcategories }" itemValue="Id"
+									itemLabel="name" />
+							</form:select>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="name">${labelCatName}*</label>
+						<div class="controls">
+							<form:input path="name" />
+						</div>
+						<div>
+							<form:errors path="name" cssClass="error" />
+						</div>
+					</div>
+					<!-- Close Span 1 -->
+				</div>
+
+				
+
+				<div class="row-fluid">
+					<div class="span9">
+						<div class="text-center">
+							<button type="submit" class="btn">Save Law Sub Category</button>
+							<button type="button" class="btn">Cancel</button>
+						</div>
+					</div>
+				</div>
+				<!-- Close row3 -->
+			</fieldset>
+		</form:form>
+	</div>
+</div>
+</div>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+     
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+	<spring:message code="label_subcr_list" var="labelSubscriptionList" />
+	<spring:message code="label_sub_bank" var="labelSubscriberBank" />
+	<spring:message code="label_bank_teller" var="labelTellerNumber" />
+	<spring:message code="label_sub_plan" var="labelSubcriptionPlan" />
+	<spring:message code="label_sub_name" var="labelSubscriberName" />
+	<spring:message code="label_created_by" var="labelCreatedBy" />
+	<spring:message code="label_approved_by" var="labelApprovedBy" />
+	<spring:message code="label_created_time" var="labelCreatedDate" />
+	<spring:message code="label_approved_time" var="labelApprovedDate" />
+	<spring:message code="label_teller_amount" var="labelTellerAmount" />
+	<spring:message code="label_teller_date" var="labelTellerDate" />
+	<spring:message code="label_tx_id" var="labelSubscriberTxId" />
+	<spring:message code="label_tx_status" var="labelTxStatus" />
+
+<spring:url value="/public/sb_subs/" var="showTransactionUrl" />
+
+<div>
+	<script type="text/javascript">
+	$(function() {
+		$("#list").jqGrid({
+							url : '${showTransactionUrl}/listgrid',
+							datatype : 'json',
+							mtype : 'GET',
+							colNames : [ '${labelSubscriberTxId}','${labelSubscriberName}',	'${labelSubcriptionPlan}', '${labelTellerAmount}', 
+							             '${labelSubscriberBank}','${labelTellerNumber}','${labelTellerDate}','${labelCreatedDate}', '${labelTxStatus}'],
+							colModel : [ 
+								{name : 'transactionId',index : 'transactionId', width : 100 }, 
+							    {name : 'subscriber',index : 'subscriber', width : 100 }, 
+							    {name : 'subscriptionType',	index : 'subscriptionType',	width : 100	}, 
+								{name : 'amountPaid',index : 'amountPaid', width : 100}, 
+							    {name : 'bankName',index : 'bankName', width : 100},
+							    {name : 'tellerNumber',index : 'tellerNumber', width : 100},
+							    {name : 'tellerDateString',index : 'tellerDate', width : 100},
+							    {name : 'dateCreatedString',index : 'dateCreated', width : 100},
+							    {name : 'status',index : 'status', width : 100},],
+							jsonReader : {
+								root : "transactionData",
+								page : "currentPage",
+								total : "totalPages",
+								records : "totalRecords",
+								repeatitems : false,
+								id : "transactionId"
+							},
+							pager : '#pager',
+							rowNum : 10,
+							rowList : [ 10, 20, 30 ],
+							sortname : 'subscriber',
+							sortorder : 'asc',
+							viewrecords : true,
+							gridview : true,
+							height : 250,
+							width : 860,
+							caption : '${labelSubscriptionList}',
+							onSelectRow : function(id) {
+								document.location.href = "${showTransactionUrl}/" + id;
+							}
+						});
+					});
+</script>
+
+	<div class="row-fluid" id="">
+		<div class="span9 text-left divide">
+			<h4>TRANSACTION</h4>
+		</div>
+	</div>
+
+	<c:if test="${not empty message}">
+		<div id="message" class="${message.type}">${message.message}</div>
+	</c:if>
+	<!--  <h4>${labelSubscriptionList}</h4>-->
+	<div>
+		<table id="list">
+			<tr>
+				<td />
+			</tr>
+		</table>
+	</div>
+	<div id="pager"></div>
+</div>
+<!--  
+		<p>
+			<span><a href="/compulaw/public/sb_subs/subscriptionInstance?form">New Subscription Item</a></span>
+		</p>-->
+	<br />
+</div>

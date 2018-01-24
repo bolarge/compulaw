@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+	<spring:message code="label_lcat_list" var="labelCategoryList" />
+	<spring:message code="label_lcat_name" var="labelCatName" />
+	<spring:message code="label_lcat_code" var="labelCatCode" />
+	<spring:message code="label_lcat_sub_cat" var="labelCatSubCat" />
+	<spring:message code="label_lcat_caselaws" var="labelCatCaselaws" />
+	<spring:message code="label_lcat_acts" var="labelCatActs" />
+
+	<spring:url value="/public/sb_lcat/" var="showLawCategoryUrl" />
+
+<div>
+	<script type="text/javascript">
+		$(function() {
+			$("#list").jqGrid(
+					{
+						url : '${showLawCategoryUrl}/listgrid',
+						datatype : 'json',
+						mtype : 'GET',
+						colNames : [ '${labelCatName}','${labelCatCode}'],
+						colModel : [ {name : 'name',index : 'name',width : 250}, 
+									 {name : 'code',index : 'code',width : 250},],
+						jsonReader : {
+							root : "lawCategoryData",
+							page : "currentPage",
+							total : "totalPages",
+							records : "totalRecords",
+							repeatitems : false,
+							id : "id"},
+						pager : '#pager',
+						rowNum : 10,
+						rowList : [ 10, 20, 30 ],
+						sortname : 'name',
+						sortorder : 'asc',
+						viewrecords : true,
+						gridview : true,
+						height : 250,
+						width : 860,
+						caption : '${labelCategoryList}',
+						onSelectRow : function(id) {
+							document.location.href = "${showLawCategoryUrl}/" + id;
+						}
+					});
+		});
+	</script>
+
+	<div class="row-fluid" id="">
+		<div class="span9 text-left divide">
+			<h4>LAW CATEGORY</h4>
+		</div>
+	</div>
+
+	<c:if test="${not empty message}">
+		<div id="message" class="${message.type}">${message.message}</div>
+	</c:if>
+	<div>
+		<table id="list" class="table">
+			<tr>
+				<td />
+			</tr>
+		</table>
+	</div>
+	<div id="pager"></div>	
+</div>
+<br />
+	<p>
+		<span><a href="/public/sb_lcat?form">New Law Category </a></span>
+	</p>
+</div>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>sp"%>
+
+
+<spring:message code="label_logout" var="labelLogout" />
+<spring:url var="rNewUrl" value="/public/sb_subs/rnew.jsp" />
+
+<div class="row-fluid" id="">
+	<div class="span9 text-left offset1">
+		<h2>Subscription Renewal</h2>
+	</div>
+</div>
+
+
+<div class="row-fluid" id="loginForm">
+	<div class="span6 well offset1">
+
+		<form class="" action="${rNewUrl}" method="POST" id="rNewForm">
+			<input type="text" class="input-block-level"
+				placeholder="Enter Email address" name="j_username" id="j_username">
+
+			<button class="btn btn-medium btn-primary" type="submit">Verify
+				Account</button>
+
+		</form>
+	</div>
+</div>

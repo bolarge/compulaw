@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:message code="label_item_list" var="labelItemList" />
+	<spring:message code="label_item_name" var="labelItemName" />
+	<spring:message code="label_item_type" var="labelItemType" />
+	<spring:message code="label_item_duration" var="labelItemDuration" />
+	<spring:message code="label_item_price" var="labelItemPrice" />
+	<spring:message code="label_item_new" var="labelItemNew" />
+	<spring:message code="label_item_update" var="labelItemUpdate" />
+
+	<spring:url value="/public/sb_item/" var="showItemUrl" />
+
+	<spring:eval
+		expression="item.id == null ? labelItemNew:labelItemUpdate"
+		var="formTitle" />
+
+	<div class="divide">
+		<form:form class="form-horizontal" modelAttribute="item"
+			id="itemUpdateForm" method="post">
+			<c:if test="${not empty message}">
+				<div id="message" class="${message.type}">${message.message}</div>
+			</c:if>
+			<fieldset>
+				<legend>${formTitle}</legend>
+				<div class="control-group">
+					<label class="control-label" for="itemName">${labelItemName}</label>
+					<div class="controls">
+						<form:input path="itemName" />
+					</div>
+					<div>
+						<form:errors path="itemName" cssClass="error" />
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="price">${labelItemPrice}</label>
+					<div class="controls">
+						<form:input path="price" />
+					</div>
+					<div>
+						<form:errors path="price" cssClass="error" />
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="duration">${labelItemDuration}</label>
+					<div class="controls">
+						<form:input path="duration" />
+					</div>
+					<div>
+						<form:errors path="duration" cssClass="error" />
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="subscriptionPlan">${labelItemType}</label>
+					<div class="controls">
+						<form:select path="subscriptionPlan">
+							<spring:message code="option.select" var="selectOptionText" />
+							<form:option value="" label="${selectOptionText}" />
+							<form:options items="${subscriptionPlans}" />
+						</form:select>
+					</div>
+					<div>
+						<form:errors path="subscriptionPlan" cssClass="error" />
+					</div>
+				</div>
+
+				<form:hidden path="version" />
+				<div class="row-fluid">
+					<div class="span9">
+						<div class="text-center">
+							<button type="submit" class="btn">Add Subscription Item</button>
+							<button type="button" class="btn">Cancel</button>
+						</div>
+					</div>
+				</div>
+				<!-- <a href="${editItemUrl}/${item.id}?form">${labelItemUpdate}</a>  -->
+
+			</fieldset>
+		</form:form>
+	</div>
+
+
+</div>

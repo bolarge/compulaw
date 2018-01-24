@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<div class="row-fluid">
+		<div class="span12 text-left">
+			<h1>17 Years, 35 States of Nigeria, 6 African Countries, 15000
+				Lawyers</h1>
+			<p class="lead">WELCOME TO LEADERSHIP AND QUALITY</p>
+			<p>For every Legal Practitioner, it would best to ignore
+				information technology leaving it to others (The Next Generation) or
+				more technically minded colleagues and to concentrate on real
+				issues.</p>
+			<p>The approach is fundamentally wrong. Moreover, every country
+				(Nigeria inclusive) is producing a generation of children for whom
+				information Technology holds no fear. They are the Nintendo
+				Generation. Those born in the '50s' and '60s' have no perception of
+				the television as 'technology'. Within the last three years, we have
+				seen a new generation of young lawyers for which use of computers,
+				softwares and the Internet is no different from using the telephone
+				or television.</p>
+			<p>We at LEGAL DIGEST saw the above picture decades ago. Then we
+				were the LONE VOICE IN THE WILDERNESS.</p>
+			<p>As far back as 1995 when Legal Digest Hosted the 1st Infotech
+				Law seminar; to our Digest Law Reports (1997) and most recently; our
+				latest flagship product COMPULAW, we have always LED and maintained
+				our leadership. We are particularly proud that the technology
+				deployed on all our softwares are home grown but of International
+				standards. They are put together by a group of young yet brilliant
+				set of Nigerians.</p>
+			<p>We are poised for a new phase and an exciting future as we
+				launch Version 5 across multiple platforms that simply heralds yet
+				another milestone in our history. Compulaw V.5 now on Desktop,
+				Online, Android and other mobile devices.</p>
+		</div>
+	</div>
+</div>

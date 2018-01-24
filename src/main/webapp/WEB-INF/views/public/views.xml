@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<definition name="public/s_welcome" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/public/subscr_welcome.jspx" />
+	</definition>
+
+	<definition name="public/a_welcome" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/public/admin_welcome.jspx" />
+	</definition>
+
+</tiles-definitions>

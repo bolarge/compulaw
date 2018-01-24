@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:security="http://www.springframework.org/schema/security"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd    
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http pattern="/favicon.ico" security="none" />
+	<http auto-config="true" access-decision-manager-ref="accessDecisionManager">
+
+		<!-- <intercept-url pattern="/sys_auth/*" access="IS_AUTHENTICATED_ANONYMOUSLY" /> -->
+		<intercept-url pattern="/public/*" access="ROLE_USER, ROLE_ADMIN" />
+		<intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
+		<intercept-url pattern="/*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+		<form-login login-page="/sys_auth/login.do"
+			login-processing-url="/sys_auth/j_spring_security_check"
+			authentication-failure-url="/sys_auth/login.do?login_error=t"
+			default-target-url="/sys_auth/welcome.do" />
+
+		<logout logout-success-url="/" logout-url="/sys_auth/logout"
+			invalidate-session="true" />
+
+		<access-denied-handler error-page="/sys_auth/error/403.do" />
+		<remember-me key="compulaw-key" />
+		<logout delete-cookies="JSESSIONID" />
+
+		<session-management>
+			<concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+		</session-management>
+	</http>
+
+	<beans:bean id="accessDecisionManager"
+		class="org.springframework.security.access.vote.AffirmativeBased">
+		<beans:property name="decisionVoters">
+			<beans:list>
+				<beans:bean
+					class="org.springframework.security.web.access.expression.WebExpressionVoter" />
+				<beans:bean class="org.springframework.security.access.vote.RoleVoter">
+					<beans:property name="rolePrefix" value="ROLE_" />
+					<!-- Above is the default behaviour. Mentioning just in case if someone 
+						wants to have different prefix or no prefix at all. This is specially useful 
+						when you want to validate against privileges instead of roles.(i.e. You have 
+						dynamically defined roles against a set of pre-defined privileges.) -->
+				</beans:bean>
+				<beans:bean
+					class="org.springframework.security.access.vote.AuthenticatedVoter" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<authentication-manager>
+		<authentication-provider ref="daoAuthenticationProvider" />
+	</authentication-manager>
+
+	<beans:bean id="daoAuthenticationProvider"
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<beans:property name="userDetailsService" ref="userAuthenticationService" />
+		<beans:property name="passwordEncoder" ref="passwordEncoder" />
+		<!-- Enable the following if you are using a salt with the password encoding 
+			<beans:property name="saltSource" ref="saltSource"/> -->
+	</beans:bean>
+
+	<beans:bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<!-- <beans:constructor-arg value="256"/> <beans:property name="iterations" 
+			value="1000"/> -->
+	</beans:bean>
+
+	<!-- -->
+	<beans:bean id="userAuthenticationService"
+		class="com.congruent.compulaw.serviceImpl.PersonServiceImpl">
+	</beans:bean> 
+	
+	<!-- User Detail Services   
+    <authentication-manager >
+        <authentication-provider user-service-ref="userDetailsService"/>
+    </authentication-manager>
+        
+    <beans:bean id="userDetailsService" class="com.congruent.compulaw.security.provider.UserDetailsServiceImpl"/>
+     -->
+
+	<!-- Enable the following if you are using a salt with the password encoding 
+		<beans:bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource"> 
+		<beans:property name="userPropertyToUse" value="id"/> </beans:bean> -->
+
+</beans:beans>

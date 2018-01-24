@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:message code="label_caselaw_title" var="labelCaselawCaseTitle" />
+	<spring:message code="label_caselaw_judge" var="labelCaselawJudge" />
+	<spring:message code="label_caselaw_counsel" var="labelCaselawCounsel" />
+	<spring:message code="label_caselaw_cit1" var="labelCaselawCitations1" />
+	<spring:message code="label_caselaw_cit2" var="labelCaselawCitations2" />
+	<spring:message code="label_caselaw_cit3" var="labelCaselawCitations3" />
+	<spring:message code="label_caselaw_content" var="labelCaselawContent" />
+	<spring:message code="label_caselaw_doc" var="labelCaselawDocument" />
+
+	<spring:url value="/public/sb_srch/" var="showCaselawSearchUrl" />
+	<spring:url value="/public/sb_srch/document/" var="showCaselawDocUrl" />
+
+	<div>
+		<script type="text/javascript">
+			$(function() {
+				$("#list")
+						.jqGrid(
+								{
+									url : '${showCaselawSearchUrl}/list3grid',
+									datatype : 'json',
+									mtype : 'GET',
+									colNames : [ '${labelCaselawCaseKeyword}',
+											'${labelCaselawJudge}' ],
+									colModel : [ {
+										name : 'keyword',
+										index : 'keyword',
+										width : 350
+									}, {
+										name : 'judge',
+										index : 'judge',
+										width : 125
+									},
+									//{name:'counsels', index:'counsels', width:125}, 
+									//{name:'citations1', index:'citations1', width:125, align:'center', sortable:false}, 
+									//{name:'citations2', index:'citations2', width:125, align:'center', sortable:false},  
+									//{name:'citations3', index:'citations3', width:125, sortable:false} 
+									],
+									jsonReader : {
+										root : "caselawData",
+										page : "currentPage",
+										total : "totalPages",
+										records : "totalRecords",
+										repeatitems : false,
+										id : "id"
+									},
+									pager : '#pager',
+									rowNum : 10,
+									rowList : [ 10, 20, 30 ],
+									sortname : 'keyword',
+									sortorder : 'asc',
+									recordpos : 'left',
+									viewrecords : true,
+									gridview : true,
+									height : 250,
+									width : 867,
+									caption : '${labelCaselawKeyword}',
+									onSelectRow : function(id) {
+										document.location.href = "${showCaselawDocUrl}/"
+												+ id;
+									}
+								});
+
+				$('#mysearch').jqGrid('filterGrid', '#list', {
+					filterModel : [ {
+						label : '${labelCaselawKeyword}',
+						name : 'keyword'
+					}, {
+						label : '${labelCaselawJudge}',
+						name : 'judge'
+					},
+					//{label: '${labelCaselawCounsel}', name: 'counsels'},
+					// {label: '${labelCaselawCitations1}', name: 'citations1'},
+					// {label: '${labelCaselawCitations2}', name: 'citations2'},
+					//{label: '${labelCaselawCitations3}', name: 'citations3'},
+					//{label: '${labelToPostDate}', name: 'toPostDate', stype: 'text'}
+					],
+					formtype : 'vertical',
+					enableSearch : true,
+					enableClear : true,
+					autosearch : true,
+					searchOnEnter : true,
+				//defaultSearch:"bw"
+				});
+			});
+		</script>
+
+		<div id="mysearch">
+			<br />
+		</div>
+		<br />
+		<div>
+			<table id="list">
+				<tr>
+					<td />
+				</tr>
+			</table>
+		</div>
+		<div id="pager"></div>
+		<p>&nbsp;</p>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="login" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/sys_auth/login.jspx" />
+	</definition>
+
+	<definition name="logout" extends="base.content">
+		<put-attribute name="body" value="/WEB-INF/views/syst_auth/login.jspx" />
+	</definition>
+
+	<definition name="home" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/home.jspx" />
+	</definition>
+
+	<definition name="price" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/price.jspx" />
+	</definition>
+
+	<definition name="about" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/about.jspx" />
+	</definition>
+
+	<definition name="welcome" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/welcome.jsp" />
+	</definition>
+
+</tiles-definitions>

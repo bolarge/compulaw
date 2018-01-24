@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:form="http://www.springframework.org/tags/form"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+
+<div class="row-fluid">
+	<div class="span12 text-left">
+		<h2>Package Plans And Pricing</h2>
+		<p class="lead">Select from any of our packages</p>
+	</div>
+</div>
+
+<div class="row-fluid">
+	<div class="span4">
+		<div class="plan plan-featured">
+			<div class="plan-name">
+				<h3>Monthly Plan</h3>
+			</div>
+			<!-- 
+						<div class="plan-info">
+							<p>Get a helping hand with our products in the members only premium area</p>
+						</div>-->
+			<div class="plan-price">
+				<h3>
+					N1500 <small>/month</small>
+				</h3>
+			</div>
+			<!--
+			<ul class="plan-features">
+				<li><i class="icon-ok"></i>Student <i
+					class="icon-info-sign" data-toggle="tooltip" data-original-title="Restrictions apply">
+					</i></li>
+				<li><i class="icon-ok"></i>Journalists</li>
+				 <li><i class="icon-remove"></i> Convenient</li>
+				
+				<li><i class="icon-remove"></i> Ad Free Streaming</li>
+				
+			</ul>
+			-->
+			<!--  
+						<div class="plan-cta">
+							<p>Unlimited ad-free streaming, unlimited viewers</p>
+							<br class="spacer-medium">
+							<a href="#" class="btn btn-large">Get it now! »</a>
+						</div>-->
+		</div>
+		<!-- /.plan -->
+	</div>
+	<div class="span4">
+		<div class="plan">
+			<div class="plan-name">
+				<h3>Bi-Annual Plan</h3>
+			</div>
+			<!--  
+						<div class="plan-info">
+							<p>Get a helping hand with our products in the members only premium area</p>
+						</div>-->
+			<div class="plan-price">
+				<h3>
+					N9000 <small>/mid-year</small>
+				</h3>
+			</div>
+			<!--  
+			<ul class="plan-features">
+				<li><i class="icon-ok"></i> Unlimited Support <i
+					class="icon-info-sign" data-toggle="tooltip"
+					data-original-title="Restrictions apply"></i></li>
+				<li><i class="icon-ok"></i> Basic Options</li>
+				<li><i class="icon-remove"></i> 100GB Storage</li>
+				<li><i class="icon-remove"></i> Ad Free Streaming</li>
+			</ul>
+			-->
+			<!--  
+						<div class="plan-cta">
+							<p>Unlimited ad-free streaming, unlimited viewers</p>
+							<br class="spacer-medium">
+							<a href="#" class="btn btn-large">Get it now! »</a>
+						</div>-->
+		</div>
+		<!-- /.plan -->
+	</div>
+	<div class="span4">
+		<div class="plan plan-featured">
+			<div class="plan-name">
+				<h3>Annual Plan</h3>
+			</div>
+			<!--  
+						<div class="plan-info">
+							<p>Get a helping hand with our products in the members only premium area</p>
+						</div>-->
+			<div class="plan-price">
+				<h3>
+					N18000 <small>/annum</small>
+				</h3>
+			</div>
+			<!--  
+			<ul class="plan-features">
+				<li><i class="icon-ok"></i> Unlimited Support <i
+					class="icon-info-sign" data-toggle="tooltip"
+					data-original-title="Restrictions apply"></i></li>
+				<li><i class="icon-ok"></i> Basic Options</li>
+				<li><i class="icon-remove"></i> 100GB Storage</li>
+				<li><i class="icon-remove"></i> Ad Free Streaming</li>
+			</ul>
+			-->
+			<!--  
+						<div class="plan-cta">
+							<p>Unlimited ad-free streaming, unlimited viewers</p>
+							<br class="spacer-medium">
+							<a href="#" class="btn btn-large">Get it now! »</a>
+						</div>-->
+		</div>
+		<!-- /.plan -->
+	</div>
+</div>
+</div>

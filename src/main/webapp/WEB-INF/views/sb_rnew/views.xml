@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<definition name="sb_rnew/aver" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/sb_rnew/subacntver.jspx" />
+	</definition>
+
+	<definition name="sb_rnew/plist" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/sb_rnew/pswdlist.jspx" />
+	</definition>
+
+	<definition name="sb_rnew/pword" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/sb_rnew/password.jspx" />
+	</definition>
+
+	<definition name="sb_rnew/list" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/sb_rnew/list.jspx" />
+	</definition>
+
+	<definition name="sb_rnew/rnew" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/sb_rnew/subrenew.jspx" />
+	</definition>
+
+	<definition name="sb_rnew/show" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/sb_rnew/show.jspx" />
+	</definition>
+
+	<definition name="sb_rnew/rnewsum" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/sb_rnew/rnewsummary.jspx" />
+	</definition>
+
+</tiles-definitions>

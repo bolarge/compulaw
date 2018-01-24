@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:message code="label_sub_bank" var="labelSubscriberBank" />
+	<spring:message code="label_bank_teller" var="labelTellerNumber" />
+	<spring:message code="label_sub_plan" var="labelSubcriptionPlan" />
+	<spring:message code="label_sub_term" var="labelSubcriptionTerm" />
+	<spring:message code="label_sub_name" var="labelSubscriberName" />
+	<spring:message code="label_created_by" var="labelCreatedBy" />
+	<spring:message code="label_approved_by" var="labelApprovedBy" />
+	<spring:message code="label_created_time" var="labelCreatedDate" />
+	<spring:message code="label_approved_time" var="labelApprovedDate" />
+	<spring:message code="label_teller_amount" var="labelTellerAmount" />
+	<spring:message code="label_payer_phone" var="labelPayerPhone" />
+	<spring:message code="label_teller_date" var="labelTellerDate" />
+	<spring:message code="label_tx_new" var="labelTransactionNew" />
+	<spring:message code="label_tx_renew" var="labelTransactionRenew" />
+
+	<spring:url value="/sb_rnew/" var="showItemUrl" />
+
+	<div class="row-fluid">
+		<h3>${labelTransactionRenew}</h3>
+		<c:if test="${not empty transaction}">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Subscription Plan</th>
+						<th>Price</th>
+						<th>Subscriber</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a
+							href="${showItemUrl}/${transaction.transactionId}?form">${transaction.subscriptionType}</a></td>
+						<td>${transaction.amountPaid}</td>
+						<td>${transaction.subscriber}</td>
+					</tr>
+				</tbody>
+			</table>
+		</c:if>
+	</div>
+</div>

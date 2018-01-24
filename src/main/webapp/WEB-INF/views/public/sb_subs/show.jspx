@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:joda="http://www.joda.org/joda/time/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+<spring:message code="label_sub_bank" var="labelSubscriberBank" />
+<spring:message code="label_tx_id" var="labelTransactionId" />
+<spring:message code="label_bank_teller" var="labelTellerNumber" />
+<spring:message code="label_sub_plan" var="labelSubcriptionPlan" />
+<spring:message code="label_sub_name" var="labelSubscriberName" />
+<spring:message code="label_created_by" var="labelCreatedBy" />
+<spring:message code="label_approved_by" var="labelApprovedBy" />
+<spring:message code="label_created_time" var="labelCreatedDate" />
+<spring:message code="label_approved_time" var="labelApprovedDate" />
+<spring:message code="label_teller_amount" var="labelTellerAmount" />
+<spring:message code="date_format_pattern" var="dateFormatPattern" />
+<spring:message code="label_teller_date" var="labelTellerDate" />
+<spring:message code="label_tx_info" var="labelTxInfo" />
+<spring:message code="label_tx_update" var="labelTransactionUpdate" />
+
+
+<spring:url value="/public/sb_subs/subscription/" var="showItemUrl" />
+<spring:url value="/public/sb_subs" var="editTransactionUrl" />
+
+<script type="text/javascript">
+	$(function() {
+		$('#tellerDate').datepicker({
+			dateFormat : 'dd-mm-yy',
+			changeYear : true
+		});
+	});
+</script>
+
+<div class="divide">
+	<form class="">
+		<c:if test="${not empty message}">
+			<div id="message" class="${message.type}">${message.message}</div>
+		</c:if>
+		<fieldset>
+			<legend>${labelTxInfo}</legend>
+			<div class="row">
+				<div class="span4 offset1">
+					<div class="control-group">
+						<label class="control-label" for="transactionId">${labelTransactionId}</label>
+						<div class="controls">
+							<input type="text" id="transactionId" name="transactionId"
+								value="${transaction.transactionId}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="subscriber">${labelSubscriberName}</label>
+						<div class="controls">
+							<input type="text" id="subscriber" name="subscriber"
+								value="${transaction.subscriber}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="itemName">${labelSubcriptionPlan}</label>
+						<div class="controls">
+							<input type="text" id="itemName" name="itemName"
+								value="${transaction.itemName}" readonly="readonly"/>
+						</div>
+					</div>
+				</div>
+				<div class="span4">
+					<div class="control-group">
+						<label class="control-label" for="bankName">${labelSubscriberBank}</label>
+						<div class="controls">
+							<input type="text" id="bankName" name="bankName"
+								value="${transaction.bankName}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="tellerName">${labelTellerNumber}</label>
+						<div class="controls">
+							<input type="text" name="tellerNumber"
+								value="${transaction.tellerNumber}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="amountPaid">${labelTellerAmount}</label>
+						<div class="controls">
+							<input type="text" name="amountPaid"
+								value="${transaction.amountPaid}" readonly="readonly"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="tellerDate">${labelTellerDate}</label>
+						<div class="controls">
+							
+								<joda:format value="${transaction.tellerDate}"
+								pattern="${dateFormatPattern}"/>
+								
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<a href="${editTransactionUrl}/${transaction.transactionId}?form">${labelTransactionUpdate}</a>
+	</form>
+</div>
+
+</div>

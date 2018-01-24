@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:message code="label_item_list" var="labelItemList" />
+	<spring:message code="label_item_name" var="labelItemName" />
+	<spring:message code="label_item_duration" var="labelIemDuration" />
+	<spring:message code="label_item_price" var="labelItemPrice" />
+	<spring:url value="/public/sb_item/item/" var="showItemUrl" />
+
+	<div id="d_lst" class="row">
+		<div class="well">
+			<h3>${labelItemList}</h3>
+			<c:if test="${not empty items}">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>&nbsp;</th>
+							<th>Service Name</th>
+							<th>Price</th>
+							<th>Duration</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${items}" var="item">
+							<tr>
+								<td><input class="radio" type="radio" value="${item.id}"></input></td>
+								<td>${item.itemName}</td>
+								<td>${item.price}</td>
+								<td>${item.duration}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
+		</div>
+		<p>
+			<span><a
+				href="/compulaw/public/sys_auth/subscriptionInstance?form">New
+					Subscription Item</a></span>
+		</p>
+	</div>
+</div>

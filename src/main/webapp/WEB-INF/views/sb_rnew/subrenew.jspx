@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:form="http://www.springframework.org/tags/form"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+	<spring:message code="label_sub_bank" var="labelSubscriberBank" />
+	<spring:message code="label_bank_teller" var="labelTellerNumber" />
+	<spring:message code="label_sub_plan" var="labelSubcriptionPlan" />
+	<spring:message code="label_sub_term" var="labelSubcriptionTerm" />
+	<spring:message code="label_sub_name" var="labelSubscriberName" />
+	<spring:message code="label_created_by" var="labelCreatedBy" />
+	<spring:message code="label_approved_by" var="labelApprovedBy" />
+	<spring:message code="label_created_time" var="labelCreatedDate" />
+	<spring:message code="label_approved_time" var="labelApprovedDate" />
+	<spring:message code="label_teller_amount" var="labelTellerAmount" />
+	<spring:message code="label_payer_phone" var="labelPayerPhone" />
+	<spring:message code="label_teller_date" var="labelTellerDate" />
+	<spring:message code="label_tx_new" var="labelTransactionNew" />
+	<spring:message code="label_tx_renew" var="labelTransactionRenew" />
+
+<spring:eval
+	expression="transaction.transactionId == null ? labelTransactionNew:labelTransactionRenew"
+	var="formTitle" />
+
+<div>
+	<form:form class="form-horizontal" method="POST"
+		modelAttribute="transaction" id="transaction">
+
+		<caption>${labelItemList}</caption>
+
+		<c:if test="${not empty message}">
+			<div id="message" class="${message.type}">${message.message}</div>
+		</c:if>
+
+		<fieldset>
+			<legend>${formTitle}</legend>
+			<div class="row-fluid">
+				<div class="span4">
+					<div class="control-group">
+						<label class="control-label" for="subscriber">${labelSubscriberName}</label>
+						<div class="controls">
+							<form:input path="subscriber" readonly="true" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="subscriptionType">${labelSubcriptionTerm}</label>
+						<div class="controls">
+							<form:input path="subscriptionType" readonly="true" />
+						</div>
+						<div>
+							<form:errors path="subscriptionType" cssClass="error" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="amountPaid">${labelSubcriptionPlan}</label>
+						<div class="controls">
+							<form:input path="amountPaid" readonly="true" />
+						</div>
+						<div>
+							<form:errors path="amountPaid" cssClass="error" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="payerPhone">${labelPayerPhone}</label>
+						<div class="controls">
+							<form:input path="payerPhone" />
+						</div>
+						<div>
+							<form:errors path="payerPhone" cssClass="error" />
+						</div>
+					</div>
+
+				</div>
+				<!-- End First Span -->
+
+				<div class="span4 offset1">
+					<div class="control-group">
+						<label class="control-label" for="bankName">${labelSubscriberBank}</label>
+						<div class="controls">
+							<form:input path="bankName" />
+						</div>
+						<div>
+							<form:errors path="bankName" cssClass="error" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="tellerName">${labelTellerNumber}</label>
+						<div class="controls">
+							<form:input path="tellerNumber" />
+						</div>
+						<div>
+							<form:errors path="tellerNumber" cssClass="error" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="amountPaid">${labelTellerAmount}</label>
+						<div class="controls">
+							<form:input path="amountPaid" />
+						</div>
+						<div>
+							<form:errors path="amountPaid" cssClass="error" />
+						</div>
+					</div>
+
+			
+					<div class="control-group">
+						<label class="control-label" for="tellerDate">${labelTellerDate}</label>
+						<div class="controls">
+							<form:input path="tellerDate" />
+						</div>
+					</div>
+				</div>
+				<!-- Close row 2 -->
+			</div>
+			<div class="row-fluid">
+				<div class="span10">
+					<div class="text-center">
+						<button type="submit" class="btn">Renew Subscription</button>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form:form>
+</div>
+</div>

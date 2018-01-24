@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition extends="base.content" name="public/sb_pson/create">
+		<put-attribute name="title" value="Compulaw Member Registration" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/public/sb_pson/edit.jspx" />
+	</definition>
+
+	<definition extends="base.content" name="public/sb_pson/update">
+		<put-attribute name="body"
+			value="/WEB-INF/views/public/sb_pson/edit.jspx" />
+	</definition>
+
+	<definition extends="base.content" name="public/sb_pson/show">
+		<put-attribute name="body"
+			value="/WEB-INF/views/public/sb_pson/show.jspx" />
+	</definition>
+
+	<definition extends="base.content" name="public/sb_pson/list">
+		<put-attribute name="body"
+			value="/WEB-INF/views/public/sb_pson/list.jspx" />
+	</definition>
+
+	<definition extends="base.content" name="public/sb_pson/listgrid">
+		<put-attribute name="body"
+			value="/WEB-INF/views/public/sb_pson/list.jspx" />
+	</definition>
+
+
+</tiles-definitions>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<div class="row-fluid">
+		<div class="span12 text-left">
+			<h2>Introducing Compulaw Web-Mobile</h2>
+		</div>
+
+		<div class="span6 well">
+			<h3>Compulaw Web-Mobile v1.0</h3>
+			<p>
+				<spring:url value="/resources/images/man2.png" var="man" />
+				<img class="img-rounded pull-left" data-src="holder.js/140x140"
+					src="${man}" alt=""></img> Compulaw is a digital library management
+				system. It provides information about legal affairs, case-laws,
+				acts, practices and procedures and maintains a law dictionary.
+			</p>
+		</div>
+		</div>
+
+		<!--  
+		<div class="span6  well">
+			<h3>Features</h3>
+			<spring:url value="/resources/images/plentbuks.jpg" var="buks" />
+			<img class="img-rounded pull-left" data-src="holder.js/140x140"
+				src="${buks}" alt=""></img>
+			<ul class="nav nav-list">
+				<li><i class="icon-tags"> </i>Large Legal Repository</li>
+				<li><i class="icon-tags"> </i>Basic and Advanced Search</li>
+				<li><i class="icon-tags"> </i>Library Catalog for Manual Search</li>
+				<li><i class="icon-tags"> </i>PDF Document View</li>
+			</ul>
+		</div>
+	</div>
+
+	
+	<div class="row-fluid" id="homeDisplay">
+		<div class="span6 well">
+			<h3>Why use Compulaw ?</h3>
+			
+			<spring:url value="/resources/images/hammer-comp.jpg" var="buks" />
+			<img class="img-rounded pull-left" data-src="holder.js/140x140"
+				src="${buks}"></img>
+			<ul class="nav nav-list">
+				<li><i class="icon-tags"> </i>Closer access to information</li>
+				<li><i class="icon-tags"> </i>Work from your mobile devices</li>
+				<li><i class="icon-tags"> </i>Any time, anywhere stay busy</li>
+			</ul>
+			
+		</div>
+
+		<div class="span6  well">
+			<h3>Subscribe Now !!!</h3>
+			<ul class="nav nav-list">
+				<li><i class="icon-tags"> </i><small>Select <a
+						href="/price">Plan</a> from any of our packages
+				</small></li>
+				<li><i class="icon-tags"> </i><small>Go to the Bank and
+						pay for desired package</small></li>
+				<li><i class="icon-tags"> </i><small>Return to the site
+						after payment and <a href="/sys_auth?form">Subscribe</a>
+				</small></li>
+			</ul>
+			
+		</div>
+	</div>
+	
+	-->
+	<p></p>
+</div>

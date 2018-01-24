@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     xmlns:form="http://www.springframework.org/tags/form"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>file="/WEB-INF/views/common/include.jsp"%>
+
+	<spring:message code="label_act_title" var="labelActTitle" />
+	<spring:message code="label_act_fileName" var="labelActFileName" />
+	<spring:message code="label_act_section1" var="labelActSection1" />
+	<spring:message code="label_act_section2" var="labelActSection2" />
+	<spring:message code="label_act_section3" var="labelActSection3" />
+	<spring:message code="label_act_section4" var="labelActSection4" />
+	<spring:message code="label_act_section5" var="labelActSection5" />
+	<spring:message code="label_act_section6" var="labelActSection6" />
+	<spring:message code="label_act_section7" var="labelActSection7" />
+	<spring:message code="label_act_section8" var="labelActSection8" />
+	<spring:message code="label_act_section9" var="labelActSection9" />
+	<spring:message code="label_act_section10" var="labelActSection10" />
+	<spring:message code="label_act_new" var="labelActNew" />
+	<spring:message code="label_act_update" var="labelActUpdate" />
+
+<spring:url value="/public/sb_acts/" var="showActSearchUrl" />
+<spring:url value="/public/sb_acts/document/" var="showActDocUrl" />
+
+<div>
+	<script type="text/javascript">
+    $(function(){  
+    	
+    	/* var mygrid = $("#mylist"),
+        mygetUniqueNames = function(columnName) {
+            var texts = mygrid.jqGrid('getCol',columnName), uniqueTexts = [],
+                textsLength = texts.length, text, textsMap = {}, i;
+            for (i=0;i<textsLength;i++) {
+                text = texts[i];
+                if (text !== undefined && textsMap[text] === undefined) {
+                    // to test whether the texts is unique we place it in the map.
+                    textsMap[text] = true;
+                    uniqueTexts.push(text);
+                }
+            }
+            return uniqueTexts;
+        }; */
+    	
+      $("#list").jqGrid({
+        url:'${showActSearchUrl}/listgrid',
+        datatype: 'json',
+        mtype: 'GET',
+        colNames : [ '${labelActTitle}', '${labelActDocument}' ],
+		colModel : [ {name : 'title', index : 'title', width : 400},
+					 {name : 'document.id', index : 'document.id', width : 100} ],
+        jsonReader : {
+            root:"actData",
+            page: "currentPage",
+            total: "totalPages",
+            records: "totalRecords",
+            repeatitems: false,
+            id: "id"
+        },      
+        pager: '#pager',
+        rowNum:10,
+        rowList:[10,20,30],
+        sortname: 'title',
+        sortorder: 'asc',
+        recordpos: 'left',
+        viewrecords: true,
+        gridview: true,
+        height: 250,
+        width : 860,
+        //multiselect: true,
+        caption: '${labelActList}',
+        onSelectRow: function(id){ 
+        	document.location.href = "${showActDocUrl}/" + id;
+        }
+      });   
+      
+      //$("#list").jqGrid('navGrid','#pager',{add:false,del:false,edit:false,position:'right'});
+      
+      /* mygrid.jqGrid('setColProp', 'title',
+              {  searchoptions: {
+                      sopt:['bw'],
+                      dataInit: function(elem) {
+                          $(elem).autocomplete({ 
+                              source:mygetUniqueNames('title'),
+                              //source:'${showActSearchUrl}/listgrid',
+                              delay:0,
+                              minLength:0
+                          });
+                      }
+                  }
+              });
+
+      mygrid.jqGrid('filterToolbar',{stringResult:true, searchOnEnter:true, defaultSearch:"bw"}); */
+      
+      $('#mysearch').jqGrid('filterGrid', '#list', { 
+    	  filterModel: [{label: '${labelActTitle}', name: 'title'},
+    	    			//{label: '${labelCaselawJudge}', name: 'judge'},
+    	   				//{label: '${labelCaselawCounsel}', name: 'counsels'},
+    	    		   ],
+    	  formtype: 'vertical',
+    	  enableSearch: true,
+    	  enableClear: true,
+    	  autosearch: true,
+    	  //searchOnEnter:true,
+    	  //defaultSearch:"bw"
+      }); 
+      
+    });  
+    
+    </script>
+	<div id="mysearch">
+		<br />
+	</div>
+	<br />
+
+	<div>
+		<table id="list">
+			<tr>
+				<td />
+			</tr>
+		</table>
+	</div>	
+</div>
+<div id="pager"></div>
+</div>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:message code="label_login" var="labelLogin" />
+	<spring:message code="label_logout" var="labelLogout" />
+	<spring:url var="loginUrl" value="/sys_auth/j_spring_security_check" />
+
+	<div class="row-fluid" id="">
+		<div class="span9 text-left offset1">
+			<h2>Sign In</h2>
+		</div>
+	</div>
+
+	<div class="row-fluid" id="loginForm">
+		<div class="span6 well offset1">
+
+			<c:if test="${not empty param.login_error}">
+				<div class="error">
+					Your login attempt was not successful, try again.<br /> Reason:
+					<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+				</div>
+			</c:if>
+
+			<form class="" action="${loginUrl}" method="POST" id="loginForm">
+				<input type="text" class="input-block-level"
+					placeholder="Enter Email address" name="j_username" id="j_username" />
+				<input type="password" class="input-block-level"
+					placeholder="Enter Password" name="j_password" id="j_password" /> <label
+					class="checkbox"> <input type="checkbox"
+					value="remember-me" name="_spring_security_remember_me" /> Remember me
+				</label>
+
+				<button class="btn btn-medium btn-primary" type="submit">Sign
+					In</button>
+
+				<a href="/compulaw/sb_waps?form" class="btn btn-medium btn-primary"
+					type="button">Forgot Password</a> <a href="/compulaw/sb_rnew?form"
+					class="btn btn-medium btn-primary" type="button">Renew Account</a>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<definition extends="base.content" name="sys_auth/create">
+		<put-attribute name="body" value="/WEB-INF/views/sys_auth/edit.jspx" />
+	</definition>
+
+	<definition extends="base.content" name="sys_auth/verify">
+		<put-attribute name="body" value="/WEB-INF/views/sys_auth/usrver.jspx" />
+	</definition>
+
+	<definition extends="base.content" name="sys_auth/list">
+		<put-attribute name="body" value="/WEB-INF/views/sys_auth/list.jspx" />
+	</definition>
+
+	<definition name="sys_auth/welcome" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/sys_auth/welcome.jspx" />
+	</definition>
+
+	<definition name="sys_auth/loginfail" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/sys_auth/login.jspx" />
+	</definition>
+
+	<definition name="sys_auth/error/403" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/sys_auth/error/403.jspx" />
+	</definition>
+
+	<definition name="sys_auth/error/inactive" extends="base">
+		<put-attribute name="body"
+			value="/WEB-INF/views/sys_auth/error/inactive_subscr.jspx" />
+	</definition>
+
+	<definition name="sys_auth/rnew" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/sys_auth/rnew.jspx" />
+	</definition>
+
+</tiles-definitions>

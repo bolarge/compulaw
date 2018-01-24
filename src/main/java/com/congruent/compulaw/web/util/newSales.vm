@@ -1,0 +1,18 @@
+<html>
+<body>
+<h3>Hello Sales,</h3>
+<div>
+	<p>
+   		A new sales is pending for your approval. 
+   		
+   		Transaction details are as follows:
+   		<ol>
+   			<li>Transaction Plan: ${transaction.itemName}</li>
+   			<li>Applicant: ${transaction.user.email}</li>
+   			<li>Payment Bank: ${transaction.bankName}</li>
+   			<li>Teller Number: ${transaction.tellerNumber}</li>
+   		</ol>
+   </p> 	
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+	<spring:message code="label_act_title" var="labelActTitle" />
+	<spring:message code="label_act_fileName" var="labelActFileName" />
+	<spring:message code="label_act_section1" var="labelActSection1" />
+	<spring:message code="label_act_section2" var="labelActSection2" />
+	<spring:message code="label_act_section3" var="labelActSection3" />
+	<spring:message code="label_act_section4" var="labelActSection4" />
+	<spring:message code="label_act_section5" var="labelActSection5" />
+	<spring:message code="label_act_section6" var="labelActSection6" />
+	<spring:message code="label_act_section7" var="labelActSection7" />
+	<spring:message code="label_act_section8" var="labelActSection8" />
+	<spring:message code="label_act_section9" var="labelActSection9" />
+	<spring:message code="label_act_section10" var="labelActSection10" />
+	<spring:message code="label_act_new" var="labelActNew" />
+	<spring:message code="label_act_display" var="formTitle" />
+	<spring:message code="label_act_update" var="labelActUpdate" />
+
+
+	<spring:url value="/public/act/document" var="actDocumentUrl" />
+	<spring:url value="/public/act" var="editActUrl" />
+
+<div class="divide">
+	<form class="form-horizontal">
+		<c:if test="${not empty message}">
+			<div id="message" class="${message.type}">${message.message}</div>
+		</c:if>
+
+		<fieldset>
+			<legend>${formTitle}</legend>
+			<div class="control-group">
+				<label class="control-label" for="title">${labelActTitle}</label>
+				<div class="controls">
+					<input type="text" id="title" name="title" size="40"
+						value="${act.title}" readonly="readonly"></input>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="filenNme">${labelActFileName}</label>
+				<div class="controls">
+					<input type="text" id="fileName" name="fileName"
+						value="${act.fileName}" readonly="readonly"></input>
+				</div>
+			</div>
+			
+			<div class="row-fluid">
+				<div class="span8">
+					<div class="text-center">
+						<button type="submit" class="btn">Save Record</button>
+						<button type="button" class="btn">Cancel</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+		<a href="${editActUrl}/${act.id}?form">${labelActUpdate}</a>
+	</form>
+</div>
+</div>

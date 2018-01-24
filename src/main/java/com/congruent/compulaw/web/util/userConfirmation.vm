@@ -1,0 +1,14 @@
+<html>
+<body>
+<div>
+<h3>Dear ${user.lastName},</h3>
+<p>Welcome to compulaw Online Legal Library </p>
+<p>Your application has been received and under processing.<br/><br/>
+Kindly click on <a href="http://www.compulawonline.com/public/sb_subs?form">Subscribe</a>  to complete your subscription.
+ <br/>
+ <br/>
+ Compulaw Team
+ </p>
+</div>
+</body>
+</html>
