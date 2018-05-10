@@ -1,6 +1,6 @@
-package com.congruent.compulaw.web.mvc;
+/*package com.congruent.compulaw.web.mvc;
 
-import com.congruent.compulaw.domain.Role;
+//import com.congruent.compulaw.domain.Role;
 import com.congruent.compulaw.domain.User;
 import com.congruent.compulaw.service.MailService;
 import com.congruent.compulaw.service.PersonService;
@@ -64,15 +64,15 @@ public class SignupController{
     logger.info("User id: " + person.getId());
    
   //Attached user to role
-    Role role = new Role("ROLE_USER");
-   /* UserRole userRole = new UserRole();
+   // Role role = new Role("ROLE_USER");
+    UserRole userRole = new UserRole();
     userRole.setUser(person);
     userRole.setRole(role);
     userRole.setCreatedBy("System");
     userRole.setCreated(new DateTime());
-    person.getUserRoles().add(userRole);*/
+    person.getUserRoles().add(userRole);
     
-    person.addRole(role);
+    //person.addRole(role);
     
     //Disable alert
     this.mailService.sendSubscriberConfirmationAlert(person);
@@ -93,4 +93,4 @@ public class SignupController{
 	uiModel.addAttribute("userSession", userSession);
     return "sys_auth/create";
   }
-}
+}*/

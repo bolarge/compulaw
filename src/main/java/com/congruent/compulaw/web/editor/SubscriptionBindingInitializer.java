@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.editor;
+/*package com.congruent.compulaw.web.editor;
 
 import org.joda.time.DateTime;
 import org.slf4j.Logger;
@@ -51,3 +51,4 @@ public class SubscriptionBindingInitializer implements WebBindingInitializer{
 		binder.registerCustomEditor(LawSubCategoryEditor.class, new LawSubCategoryEditor(lawSubCategoryService));
 	}
 }
+*/

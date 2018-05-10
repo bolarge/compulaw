@@ -1,4 +1,4 @@
-package com.congruent.compulaw.serviceImpl;
+/*package com.congruent.compulaw.serviceImpl;
 
 import java.util.List;
 
@@ -40,3 +40,4 @@ public class SubscriptionItemServiceImpl implements SubscriptionItemService{
 	}
 
 }
+*/

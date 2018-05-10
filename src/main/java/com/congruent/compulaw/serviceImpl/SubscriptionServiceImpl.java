@@ -1,4 +1,4 @@
-package com.congruent.compulaw.serviceImpl;
+/*package com.congruent.compulaw.serviceImpl;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 		return subscriptionRepository.save(subscription);
 	}
 	
-	/*
+	
 	@Override
 	public List<UserSubscription> findAllUserSubscription(List<Subscription> theSubscriptions) {
 		// TODO Auto-generated method stub
@@ -86,14 +86,14 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 		//
 		subscriptionRepository.save(subscribedItem);
 	}
-*/
+
 	@Override
 	public Subscription findByItemName(String paramString) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	/*public Vendor getSelectedVendor(Long aVendorId) {
+	public Vendor getSelectedVendor(Long aVendorId) {
         System.out.println("getSelectedVendor() Method just called");
         List<Vendor> vendors = getVendors();
         Iterator vendorIter = vendors.iterator();
@@ -106,5 +106,6 @@ public class SubscriptionServiceImpl implements SubscriptionService{
         }
         System.out.println("Category not found.............................. ");
         return new Vendor(new Long(0), "name", "emailAddress");
-    }*/
+    }
 }
+*/

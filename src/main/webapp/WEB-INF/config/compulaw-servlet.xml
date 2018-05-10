@@ -170,7 +170,7 @@
 	</beans:bean> -->
 	
 	<!-- Converters -->
-	<beans:bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+	<!-- <beans:bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<beans:property name="converters">
 			<beans:list>
 				<beans:bean class="com.congruent.compulaw.web.converter.StringToDateTimeConverter"/>
@@ -182,7 +182,7 @@
 				<beans:bean class="com.congruent.compulaw.web.converter.LongToUserConverter"/>				
 			</beans:list>
 		</beans:property>
-	</beans:bean>
+	</beans:bean> -->
 
 	<!-- Map Exceptions -->
 	<!-- <beans:bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 

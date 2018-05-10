@@ -1,11 +1,11 @@
-package com.congruent.compulaw.web.converter;
+/*package com.congruent.compulaw.web.converter;
 
 import com.congruent.compulaw.domain.Subscription;
 import com.congruent.compulaw.service.SubscriptionService;
 
 import org.springframework.core.convert.converter.Converter;
 
-/**
+*//**
  * A editor which allows the translation between {@link Long} and
  * {@link Product}.
  * 
@@ -13,7 +13,7 @@ import org.springframework.core.convert.converter.Converter;
  * @author Stefan Schmidt
  * @since 0.3
  * 
- */
+ *//*
 public class LongToSubscriptionConverter implements Converter<Long, Subscription> {
 
 	private SubscriptionService subscriptionService;
@@ -53,3 +53,4 @@ public class LongToSubscriptionConverter implements Converter<Long, Subscription
 		return Subscription.class;
 	}
 }
+*/

@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.editor;
+/*package com.congruent.compulaw.web.editor;
 
 import java.beans.PropertyEditorSupport;
 
@@ -26,3 +26,4 @@ public class SubscriptionTypeEditor extends PropertyEditorSupport {
 	}
 
 }
+*/

@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.mvc;
+/*package com.congruent.compulaw.web.mvc;
 
 import java.util.Locale;
 
@@ -83,4 +83,4 @@ public class WelcomeController {
 		uiModel.addAttribute("accountStatus", accountStatus);
 		return "public/a_welcome";
 	}
-}
+}*/

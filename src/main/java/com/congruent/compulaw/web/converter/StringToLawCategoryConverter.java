@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.converter;
+/*package com.congruent.compulaw.web.converter;
 
 import org.springframework.core.convert.converter.Converter;
 
@@ -47,3 +47,4 @@ public class StringToLawCategoryConverter implements Converter<String, LawCatego
 		return User.class;
 	}
 }
+*/

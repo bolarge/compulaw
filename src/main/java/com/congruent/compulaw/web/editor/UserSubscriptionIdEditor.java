@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.editor;
+/*package com.congruent.compulaw.web.editor;
 
 import com.congruent.compulaw.domain.Transaction;
 import com.congruent.compulaw.service.TransactionService;
@@ -23,4 +23,4 @@ public class UserSubscriptionIdEditor extends PropertyEditorSupport{
     setValue(usi);
     saction = null;
   }
-}
+}*/

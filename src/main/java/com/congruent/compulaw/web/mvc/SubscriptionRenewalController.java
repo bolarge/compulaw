@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.mvc;
+/*package com.congruent.compulaw.web.mvc;
 
 import java.util.Locale;
 import java.util.Random;
@@ -155,3 +155,4 @@ public class SubscriptionRenewalController {
 	  }
 	
 }
+*/

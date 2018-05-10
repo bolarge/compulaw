@@ -13,7 +13,7 @@ version="3.0">
 	</context-param>
 	
 	<!--  Security Config -->
-	<filter>
+	<!-- <filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
@@ -21,7 +21,7 @@ version="3.0">
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	  
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>

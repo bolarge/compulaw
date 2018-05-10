@@ -1,4 +1,4 @@
-package com.congruent.compulaw.serviceImpl;
+/*package com.congruent.compulaw.serviceImpl;
 
 import com.congruent.compulaw.domain.Transaction;
 import com.congruent.compulaw.domain.User;
@@ -98,4 +98,4 @@ public class MailServiceImpl implements MailService{
     this.mailSender.send(preparator);
     logger.info("Mail Sent..... to subscriber");
   }
-}
+}*/

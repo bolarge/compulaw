@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.mvc;
+/*package com.congruent.compulaw.web.mvc;
 
 import java.util.Locale;
 
@@ -136,3 +136,4 @@ public class PasswordController {
 	    binder.registerCustomEditor(Transaction.UserSubscriptionId.class, new UserSubscriptionIdEditor(this.transactionService));
 	  }
 }
+*/

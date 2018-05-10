@@ -1,16 +1,16 @@
 /**
  * Created on Dec 22, 2011
- */
+ *//*
 package com.congruent.compulaw.web.form;
 
 import java.util.List;
 
 import com.congruent.compulaw.domain.User;
 
-/**
+*//**
  * @author Abolaji Salau
  *
- */
+ *//*
 public class PersonGrid {
 
 	private int totalPages;
@@ -54,3 +54,4 @@ public class PersonGrid {
 	}
 	
 }
+*/

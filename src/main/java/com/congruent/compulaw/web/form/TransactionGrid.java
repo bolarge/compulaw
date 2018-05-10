@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.form;
+/*package com.congruent.compulaw.web.form;
 
 import com.congruent.compulaw.domain.Transaction;
 import java.util.List;
@@ -42,4 +42,4 @@ public class TransactionGrid
   public void setTransactionData(List<Transaction> transactionData) {
     this.transactionData = transactionData;
   }
-}
+}*/

@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.mvc;
+/*package com.congruent.compulaw.web.mvc;
 
 import com.congruent.compulaw.domain.Subscription;
 import com.congruent.compulaw.enums.SubscriptionType;
@@ -119,4 +119,4 @@ public class SubscriptionItemController{
     uiModel.addAttribute("accountStatus", accountStatus);
     return "public/sb_item/create";
   }
-}
+}*/

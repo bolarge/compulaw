@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.editor;
+/*package com.congruent.compulaw.web.editor;
 
 import com.congruent.compulaw.domain.Transaction;
 import com.congruent.compulaw.service.TransactionService;
@@ -22,4 +22,4 @@ public class TransactionEditor extends PropertyEditorSupport
     Transaction uSub = this.uSubService.findByTransactionId(text);
     setValue(uSub);
   }
-}
+}*/

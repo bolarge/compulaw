@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.mvc;
+/*package com.congruent.compulaw.web.mvc;
 
 import java.util.Locale;
 
@@ -54,4 +54,4 @@ public class AuthenticationController {
 		logger.debug("Page Request: /sys_auth/error/inactive_subscr.do");
 		return "sys_auth/error/inactive";
 	}
-}
+}*/

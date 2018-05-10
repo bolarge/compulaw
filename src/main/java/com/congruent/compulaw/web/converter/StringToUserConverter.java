@@ -1,4 +1,4 @@
-package com.congruent.compulaw.web.converter;
+/*package com.congruent.compulaw.web.converter;
 
 import com.congruent.compulaw.domain.User;
 import com.congruent.compulaw.service.PersonService;
@@ -43,3 +43,4 @@ public class StringToUserConverter implements Converter<String, User> {
 		return User.class;
 	}
 }
+*/

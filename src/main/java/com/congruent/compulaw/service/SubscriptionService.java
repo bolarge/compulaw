@@ -1,4 +1,4 @@
-package com.congruent.compulaw.service;
+/*package com.congruent.compulaw.service;
 
 import java.util.List;
 
@@ -17,3 +17,4 @@ public interface SubscriptionService {
 
 	  //public List<UserSubscription> findAllUserSubscription(List<Subscription> paramList);
 }
+*/
